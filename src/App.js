@@ -40,7 +40,7 @@ class App extends React.Component {
         </Menu>
         <Router>
           <div className="App">
-            <Switch>  
+            <Switch>
             <Route exact path="/" render={() => <MainPage />} />
             <Route exact path="/host" render={() => <HostPage />} />
             <Route exact path="/volunteer" render={() => <VolunteerPage events={this.state.events}/>} />

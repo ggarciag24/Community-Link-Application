@@ -1,15 +1,24 @@
 import React from 'react'
 import HostFormContainer from '../low-level-containers/HostFormContainer'
 import ExampleContainer from '../low-level-containers/ExampleContainer'
+import { Button, Divider, Form, Grid, Segment } from 'semantic-ui-react'
+
 
 class HostPage extends React.Component {
   render(){
 
     return(
-        <div>
-        <HostFormContainer />
-        <ExampleContainer />
-        </div>
+        <Segment placeholder>
+          <Grid columns={2} relaxed='very' stackable>
+            <Grid.Column>
+                <HostFormContainer />
+            </Grid.Column>
+            <Grid.Column verticalAlign='middle'>
+              <ExampleContainer />
+            </Grid.Column>
+          </Grid>
+          <Divider vertical>Or</Divider>
+        </Segment>
     )
   }
 }

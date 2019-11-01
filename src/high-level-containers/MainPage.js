@@ -22,7 +22,7 @@ class MainPage extends React.Component {
 
     return(
         <LoginContainer handleSignUp={this.handleSignUp}/>
-        {this.state.signUpClick === true ? <CreateAccountContainer /> : null}
+    
     )
   }
 }
