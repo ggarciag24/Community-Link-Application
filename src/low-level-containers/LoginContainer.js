@@ -15,7 +15,9 @@ class LoginContainer extends React.Component {
       this.setState({[name]: value})
   };
 
-  handleLoginSubmit = () => {
+  handleLoginSubmit = (e) => {
+    e.persist()
+    e.preventDefault()
     fetch('http://localhost:3000/fakelogin', {
       method: 'POST',
       headers: {
@@ -31,6 +33,7 @@ class LoginContainer extends React.Component {
       } else {
         this.props.onChangeUser(data)
       }
+      e.target.reset()
     })
   }
 
