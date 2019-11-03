@@ -1,5 +1,7 @@
 import React from 'react'
 import { Button, Divider, Form, Grid, Segment } from 'semantic-ui-react'
+import {Redirect} from 'react-router-dom';
+
 
 class LoginContainer extends React.Component {
   constructor(){
@@ -7,7 +9,8 @@ class LoginContainer extends React.Component {
 
     this.state = {
       username: '',
-      password: ''
+      password: '',
+      redirect: false
     }
   }
 
@@ -32,13 +35,16 @@ class LoginContainer extends React.Component {
         alert('Invalid Login information')
       } else {
         this.props.onChangeUser(data)
+        this.setState({redirect: true})
       }
       e.target.reset()
     })
   }
 
   render(){
-
+    if (this.state.redirect) {
+      return <Redirect to='/profile' />
+    }
     return(
       <Segment placeholder>
         <Grid columns={2} relaxed='very' stackable>

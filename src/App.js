@@ -4,7 +4,7 @@ import MainPage from './high-level-containers/MainPage'
 import HostPage from './high-level-containers/HostPage'
 import VolunteerPage from './high-level-containers/VolunteerPage'
 import ProfilePage from './high-level-containers/ProfilePage'
-import {Route, Switch, Redirect, withRouter, Link} from 'react-router-dom';
+import {Route, Switch, Link} from 'react-router-dom';
 import { Menu } from 'semantic-ui-react'
 
 class App extends React.Component {
