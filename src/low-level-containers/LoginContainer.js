@@ -26,7 +26,11 @@ class LoginContainer extends React.Component {
     })
     .then(res => res.json())
     .then(data => {
-      this.props.onChangeUser(data)
+      if (data.error) {
+        alert('Invalid Login information')
+      } else {
+        this.props.onChangeUser(data)
+      }
     })
   }
 
