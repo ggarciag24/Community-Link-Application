@@ -22,11 +22,11 @@ class LoginContainer extends React.Component {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
       },
-      body: JSON.stringify({username: this.state.username})
+      body: JSON.stringify({username: this.state.username, password: this.state.password})
     })
     .then(res => res.json())
     .then(data => {
-      console.log(data)
+      this.props.onChangeUser(data)
     })
   }
 

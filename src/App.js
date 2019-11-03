@@ -50,7 +50,7 @@ class App extends React.Component {
         <Router>
           <div className="App">
             <Switch>
-            <Route exact path="/" render={() => <MainPage />} />
+            <Route exact path="/" render={() => <MainPage onChangeUser={this.onChangeUser}/>} />
             <Route exact path="/host" render={() => <HostPage  finishSubmit={this.finishSubmit} />} />
             <Route exact path="/volunteer" render={() => <VolunteerPage events={this.state.events}/>} />
             <Route exact path="/profile" render={() => <ProfilePage />} />
