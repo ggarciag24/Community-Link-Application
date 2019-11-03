@@ -18,11 +18,13 @@ class MainPage extends React.Component {
     this.setState({signUpClick: !this.state.signUpClick})
   }
 
+  
+
   render(){
 
     return(
         <LoginContainer handleSignUp={this.handleSignUp}/>
-    
+
     )
   }
 }

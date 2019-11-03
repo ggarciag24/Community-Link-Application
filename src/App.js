@@ -14,7 +14,8 @@ class App extends React.Component {
 
     this.state = {
       events: [],
-      activeItem: ''
+      activeItem: '',
+      currentUser: null
     }
   }
 
@@ -24,6 +25,14 @@ class App extends React.Component {
     .then(data => {
       this.setState({events: data})
     })
+  }
+
+  finishSubmit = (data) => {
+    this.setState({events: [...this.state.events, data]})
+  }
+
+  onChangeUser = (user) => {
+    this.setState({currentUser: user})
   }
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
@@ -42,7 +51,7 @@ class App extends React.Component {
           <div className="App">
             <Switch>
             <Route exact path="/" render={() => <MainPage />} />
-            <Route exact path="/host" render={() => <HostPage />} />
+            <Route exact path="/host" render={() => <HostPage  finishSubmit={this.finishSubmit} />} />
             <Route exact path="/volunteer" render={() => <VolunteerPage events={this.state.events}/>} />
             <Route exact path="/profile" render={() => <ProfilePage />} />
             </Switch>
