@@ -11,7 +11,7 @@ class HostPage extends React.Component {
         <Segment placeholder>
           <Grid columns={2} relaxed='very' stackable>
             <Grid.Column>
-                <HostFormContainer finishSubmit={this.props.finishSubmit}/>
+                <HostFormContainer finishSubmit={this.props.finishSubmit} currentUser={this.props.currentUser}/>
             </Grid.Column>
             <Grid.Column verticalAlign='middle'>
               <ExampleContainer />

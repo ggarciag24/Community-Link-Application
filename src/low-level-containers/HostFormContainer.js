@@ -20,7 +20,7 @@ class HostFormContainer extends React.Component {
           start_time: event.target.start_time.value,
           end_time: event.target.end_time.value,
           description: event.target.description.value,
-          host_id: 1 })
+          host_id: this.props.currentUser.id })
       })
       .then(res => res.json())
       .then(data => {
