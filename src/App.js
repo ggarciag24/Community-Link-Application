@@ -52,7 +52,7 @@ class App extends React.Component {
             <Route exact path="/" render={() => <MainPage onChangeUser={this.onChangeUser}/>} />
             <Route exact path="/host" render={() => <HostPage  finishSubmit={this.finishSubmit} currentUser={this.state.currentUser}/>} />
             <Route exact path="/volunteer" render={() => <VolunteerPage events={this.state.events}/>} />
-            <Route exact path="/profile" render={() => <ProfilePage />} />
+            <Route exact path="/profile" render={() => <ProfilePage currentUser={this.state.currentUser}/>} />
             </Switch>
           </div>
       </React.Fragment>

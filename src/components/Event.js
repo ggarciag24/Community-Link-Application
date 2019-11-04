@@ -9,7 +9,7 @@ class Event extends React.Component {
       <Card>
         <Card.Content>
         <Card.Header>{this.props.data.name}</Card.Header>
-        <Card.Meta>{this.props.data.focus}</Card.Meta>
+        <Card.Meta>{this.props.data.location}</Card.Meta>
         <Card.Description> {this.props.data.description} </Card.Description>
         <Card.Description><a><Icon name='time'/></a>{this.props.data.start_time} - {this.props.data.end_time}</Card.Description>
         </Card.Content>
