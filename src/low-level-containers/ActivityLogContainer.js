@@ -1,5 +1,6 @@
 import React from 'react'
 import { Table } from 'semantic-ui-react'
+import ActivityLogInfo from '../components/ActivityLogInfo'
 
 class ActivityLogContainer extends React.Component {
   render(){
@@ -13,13 +14,9 @@ class ActivityLogContainer extends React.Component {
           </Table.Row>
         </Table.Header>
         <Table.Body>
-          <Table.Row>
-            <Table.Cell>host/volunteer</Table.Cell>
-            <Table.Cell>name </Table.Cell>
-            <Table.Cell>
-              description
-            </Table.Cell>
-          </Table.Row>
+          {this.props.events.map((eventt) => eventt.host_id === this.props.currentUser.id ?
+            <ActivityLogInfo eventt={eventt}/>
+          : null)}
         </Table.Body>
       </Table>
     )

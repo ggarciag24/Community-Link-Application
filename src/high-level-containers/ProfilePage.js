@@ -13,7 +13,7 @@ class ProfilePage extends React.Component {
               <PersonalInfoContainer currentUser={this.props.currentUser} />
             </Grid.Column>
             <Grid.Column verticalAlign='middle'>
-              <ActivityLogContainer currentUser={this.props.currentUser} />
+              <ActivityLogContainer currentUser={this.props.currentUser} events={this.props.events} eventConnect={this.props.eventConnect}/>
             </Grid.Column>
           </Grid>
           <Divider vertical></Divider>
