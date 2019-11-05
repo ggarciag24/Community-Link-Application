@@ -15,14 +15,13 @@ class ActivityLogContainer extends React.Component {
         <Table.Body>
           <Table.Row>
             <Table.Cell>host/volunteer</Table.Cell>
-            <Table.Cell> eventname</Table.Cell>
+            <Table.Cell>name </Table.Cell>
             <Table.Cell>
-              Description of the event that they were a part of 
+              description
             </Table.Cell>
           </Table.Row>
         </Table.Body>
       </Table>
-
     )
   }
 }

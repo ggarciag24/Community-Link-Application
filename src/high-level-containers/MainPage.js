@@ -13,17 +13,10 @@ class MainPage extends React.Component {
   }
 
 
-  handleSignUp = () => {
-    debugger
-    this.setState({signUpClick: !this.state.signUpClick})
-  }
-
-
-
   render(){
 
     return(
-        <LoginContainer handleSignUp={this.handleSignUp} onChangeUser={this.props.onChangeUser}/>
+        <LoginContainer onChangeUser={this.props.onChangeUser} addUser={this.props.addUser}/>
 
     )
   }

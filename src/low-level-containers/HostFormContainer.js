@@ -17,6 +17,7 @@ class HostFormContainer extends React.Component {
           name: event.target.name.value,
           focus: event.target.focus.value,
           location: event.target.location.value,
+          date: event.target.date.value,
           start_time: event.target.start_time.value,
           end_time: event.target.end_time.value,
           description: event.target.description.value,
@@ -55,6 +56,13 @@ class HostFormContainer extends React.Component {
             control={Input}
             label='Location'
             placeholder='Location'
+        />
+        <Form.Field
+            id='date'
+            className='date'
+            control={Input}
+            label='Date'
+            placeholder='Date'
         />
         <Form.Group widths='equal'>
         <Form.Field

@@ -5,7 +5,7 @@ class CurrentEventsContainer extends React.Component {
   render(){
     return(
       <div>
-        {this.props.events.map((event) => <Event data={event} key={event.id}/>)}
+        {this.props.events.map((event) => <Event data={event} key={event.id} handleEventSignUp={this.props.handleEventSignUp}/>)}
       </div>
     )
   }

@@ -14,6 +14,7 @@ class App extends React.Component {
 
     this.state = {
       events: [],
+      users: [],
       activeItem: '',
       currentUser: null
     }
@@ -25,6 +26,12 @@ class App extends React.Component {
     .then(data => {
       this.setState({events: data})
     })
+
+    fetch('http://localhost:3000/users')
+    .then(res => res.json())
+    .then(data => {
+      this.setState({users: data})
+    })
   }
 
   finishSubmit = (data) => {
@@ -33,6 +40,10 @@ class App extends React.Component {
 
   onChangeUser = (user) => {
     this.setState({currentUser: user})
+  }
+
+  addUser = (user) => {
+    this.setState({users: [...this.state.users, user]})
   }
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
@@ -49,9 +60,9 @@ class App extends React.Component {
         </Menu>
           <div className="App">
             <Switch>
-            <Route exact path="/" render={() => <MainPage onChangeUser={this.onChangeUser}/>} />
+            <Route exact path="/" render={() => <MainPage onChangeUser={this.onChangeUser} addUser={this.addUser}/>} />
             <Route exact path="/host" render={() => <HostPage  finishSubmit={this.finishSubmit} currentUser={this.state.currentUser}/>} />
-            <Route exact path="/volunteer" render={() => <VolunteerPage events={this.state.events}/>} />
+            <Route exact path="/volunteer" render={() => <VolunteerPage events={this.state.events} currentUser={this.state.currentUser}/>} />
             <Route exact path="/profile" render={() => <ProfilePage currentUser={this.state.currentUser}/>} />
             </Switch>
           </div>
