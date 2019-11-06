@@ -33,6 +33,12 @@ class App extends React.Component {
     .then(data => {
       this.setState({users: data})
     })
+
+    fetch('http://localhost:3000/volunteer_events')
+    .then(res => res.json())
+    .then(data => {
+      this.setState({eventConnect: data})
+    })
   }
 
   finishVolunteerSignUp = (eventObj) => {
