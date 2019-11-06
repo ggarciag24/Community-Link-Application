@@ -4,6 +4,9 @@ import CurrentEventsContainer from '../low-level-containers/CurrentEventsContain
 class VolunteerPage extends React.Component {
 
   handleEventSignUp = (eventObj) => {
+    if (this.props.eventConnect.includes(eventObj)){
+      alert('Already signed up')
+    } else {
     fetch('http://localhost:3000/volunteer_events', {
       method: 'POST',
       headers: {
@@ -16,14 +19,12 @@ class VolunteerPage extends React.Component {
     .then(data => {
       this.props.finishVolunteerSignUp(data)
     })
-
+    }
   }
 
   render(){
     return(
-        <div>
         <CurrentEventsContainer events={this.props.events} handleEventSignUp={this.handleEventSignUp}/>
-        </div>
     )
   }
 }
