@@ -7,7 +7,7 @@ class ProfilePage extends React.Component {
   render(){
 
     return(
-        <Segment placeholder>
+      <Segment placeholder>
           <Grid columns={2} relaxed='very' stackable>
             <Grid.Column >
               <PersonalInfoContainer currentUser={this.props.currentUser} />
@@ -17,7 +17,10 @@ class ProfilePage extends React.Component {
             </Grid.Column>
           </Grid>
           <Divider vertical></Divider>
-        </Segment>
+      </Segment>
+
+
+
     )
   }
 }

@@ -6,6 +6,7 @@ class ActivityLogVolunteerInfoTwo extends React.Component {
     return (
       <>
           <Table.Cell> Volunteer </Table.Cell>
+          <Table.Cell> {this.props.indivEvent.date} </Table.Cell>
           <Table.Cell> {this.props.indivEvent.name} </Table.Cell>
           <Table.Cell> {this.props.indivEvent.description} </Table.Cell>
       </>

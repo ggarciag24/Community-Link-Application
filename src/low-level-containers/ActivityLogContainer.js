@@ -10,6 +10,7 @@ class ActivityLogContainer extends React.Component {
         <Table.Header>
           <Table.Row>
             <Table.HeaderCell>Role</Table.HeaderCell>
+            <Table.HeaderCell>Date</Table.HeaderCell>
             <Table.HeaderCell>Event Name</Table.HeaderCell>
             <Table.HeaderCell>Description</Table.HeaderCell>
           </Table.Row>
