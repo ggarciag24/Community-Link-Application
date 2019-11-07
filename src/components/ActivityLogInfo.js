@@ -8,6 +8,7 @@ class ActivityLogInfo extends React.Component {
           <Table.Cell> Host </Table.Cell>
           <Table.Cell> {this.props.eventt.date} </Table.Cell>
           <Table.Cell> {this.props.eventt.name} </Table.Cell>
+          <Table.Cell> {this.props.eventt.start_time} - {this.props.eventt.end_time} </Table.Cell>
           <Table.Cell> {this.props.eventt.description} </Table.Cell>
       </Table.Row>
     )

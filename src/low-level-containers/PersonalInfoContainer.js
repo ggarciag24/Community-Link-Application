@@ -5,7 +5,7 @@ import {Card, Image, Icon} from 'semantic-ui-react'
 class PersonalInfoContainer extends React.Component {
   render(){
     return(
-      <Card >
+      <Card>
         <Image src='https://www.fillmurray.com/250/250' wrapped ui={false} />
         <Card.Content>
           <Card.Header>{this.props.currentUser.name}</Card.Header>

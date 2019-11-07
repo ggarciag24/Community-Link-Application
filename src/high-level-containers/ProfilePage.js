@@ -9,14 +9,15 @@ class ProfilePage extends React.Component {
     return(
       <Segment placeholder>
           <Grid columns={2} relaxed='very' stackable>
-            <Grid.Column >
+            <Grid.Column width={2}>
+              </Grid.Column>
+            <Grid.Column width={4}>
               <PersonalInfoContainer currentUser={this.props.currentUser} />
             </Grid.Column>
             <Grid.Column verticalAlign='middle'>
               <ActivityLogContainer currentUser={this.props.currentUser} events={this.props.events} eventConnect={this.props.eventConnect}/>
             </Grid.Column>
           </Grid>
-          <Divider vertical></Divider>
       </Segment>
 
 
