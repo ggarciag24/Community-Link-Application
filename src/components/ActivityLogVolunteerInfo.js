@@ -7,7 +7,7 @@ class ActivityLogVolunteerInfo extends React.Component {
     return (
       <Table.Row>
           {this.props.events.map((indivEvent) => indivEvent.id === this.props.eventCon.event_id ?
-          <ActivityLogVolunteerInfoTwo indivEvent={indivEvent}/>
+          <ActivityLogVolunteerInfoTwo indivEvent={indivEvent} handleRemove={this.props.handleRemove}/>
         :null )}
       </Table.Row>
     )

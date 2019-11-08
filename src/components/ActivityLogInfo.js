@@ -1,5 +1,5 @@
 import React from 'react'
-import {Table} from 'semantic-ui-react'
+import {Table, Button} from 'semantic-ui-react'
 
 class ActivityLogInfo extends React.Component {
   render(){
@@ -10,6 +10,7 @@ class ActivityLogInfo extends React.Component {
           <Table.Cell> {this.props.eventt.name} </Table.Cell>
           <Table.Cell> {this.props.eventt.start_time} - {this.props.eventt.end_time} </Table.Cell>
           <Table.Cell> {this.props.eventt.description} </Table.Cell>
+          <Table.Cell><Button>Remove</Button></Table.Cell>
       </Table.Row>
     )
 
