@@ -6,19 +6,20 @@ import ActivityLogVolunteerInfo from '../components/ActivityLogVolunteerInfo'
 class ActivityLogContainer extends React.Component {
 
   handleRemove = (obj) => {
-    debugger
+
     let filteredConnections = this.props.eventConnect.filter(indiv_eventCon => indiv_eventCon.event_id === obj.id)
     let deeplyFilteredConnections = filteredConnections.filter(connections => connections.volunteer_id === this.props.currentUser.id)
     if (deeplyFilteredConnections.length > 0) {
-      fetch('http://localhost:3000/volunteer_events', {
+      fetch(`http://localhost:3000/volunteer_events/${deeplyFilteredConnections[0].id}`, {
         method: 'DELETE',
         headers: {
               'Content-Type': 'application/json',
               'Accept': 'application/json'
-        },
-        body: JSON.stringify({id: deeplyFilteredConnections[0].id})
+        }
       })
       .then(res => res.json())
+      .then(data => {
+        this.props.finishUnvolunteerSubmit(data)
       })
     }
   }
