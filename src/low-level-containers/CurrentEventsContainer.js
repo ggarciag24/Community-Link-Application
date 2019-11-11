@@ -9,7 +9,7 @@ class CurrentEventsContainer extends React.Component {
         <Grid.Row>
         {this.props.events.map((event) =>
             <Grid.Column>
-              <Event data={event} key={event.id} handleEventSignUp={this.props.handleEventSignUp}/>
+              <Event data={event} key={event.id} handleEventSignUp={this.props.handleEventSignUp} />
             </Grid.Column>
        )}
        </Grid.Row>

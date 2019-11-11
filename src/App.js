@@ -71,6 +71,15 @@ class App extends React.Component {
     this.setState({currentUser: null})
   }
 
+  sortBy = (sortvalue) => {
+    let copyOfEvents = [...this.state.events]
+    if (sortvalue === 'Name'){
+      this.setState({events: copyOfEvents.sort((a,b) => a.name > b.name ? 1 : -1)})
+    } else if (sortvalue === 'Focus') {
+      this.setState({events: copyOfEvents.sort((a,b) => a.focus > b.focus ? 1 : -1)})
+    }
+  }
+
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
   render(){
@@ -88,7 +97,7 @@ class App extends React.Component {
             <Switch>
             <Route exact path="/" render={() => <MainPage onChangeUser={this.onChangeUser} addUser={this.addUser}/>} />
             <Route exact path="/host" render={() => <HostPage  finishSubmit={this.finishSubmit} currentUser={this.state.currentUser}/>} />
-            <Route exact path="/volunteer" render={() => <VolunteerPage events={this.state.events} currentUser={this.state.currentUser} eventConnect={this.state.eventConnect} finishVolunteerSignUp={this.finishVolunteerSignUp}/>} />
+            <Route exact path="/volunteer" render={() => <VolunteerPage events={this.state.events} currentUser={this.state.currentUser} eventConnect={this.state.eventConnect} finishVolunteerSignUp={this.finishVolunteerSignUp} sortBy={this.sortBy}/>} />
             <Route exact path="/profile" render={() => <ProfilePage currentUser={this.state.currentUser} events={this.state.events} eventConnect={this.state.eventConnect} finishUnvolunteerSubmit={this.finishUnvolunteerSubmit} finishCancel={this.finishCancel}/>} />
             </Switch>
           </div>

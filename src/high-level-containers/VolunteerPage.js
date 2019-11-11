@@ -9,11 +9,13 @@ class VolunteerPage extends React.Component {
 
     this.state = {
       searchText: '',
-      searchResults: []
+      searchResults: [],
+      sortby: 'Name'
     }
   }
 
   handleEventSignUp = (eventObj) => {
+    debugger
    let filteredEvents = this.props.eventConnect.filter((connect) => connect.event_id === eventObj.id)
    let deepFilter = filteredEvents.filter((filteredEvent) => filteredEvent.volunteer_id === this.props.currentUser.id)
    if(deepFilter.length > 0){
@@ -41,12 +43,27 @@ class VolunteerPage extends React.Component {
     this.setState({searchResults: results, searchText: e.target.value})
   }
 
+  changeSortState = (e) => {
+    this.setState({sortby: e.target.value})
+  }
+
+  debugger
+
   render(){
+    debugger
     return(
       <>
       <Search onSearchChange={this.searchFilter} showNoResults={false} />
+      <br></br>
+      <div className='sort-div'>
+      <select className='sort' onChange={this.changeSortState}>
+        <option>Name</option>
+        <option>Focus</option>
+      </select>
+      <button className='sort-btn' onClick={() => this.props.sortBy(this.state.sortby)} > Sort</button>
+      </div>
       <br></br><br></br>
-      <CurrentEventsContainer events={this.state.searchText.length === 0 ? this.props.events : this.state.searchResults} handleEventSignUp={this.handleEventSignUp}/>
+      <CurrentEventsContainer events={this.state.searchText.length === 0 ? this.props.events : this.state.searchResults} handleEventSignUp={this.handleEventSignUp} />
       </>
     )
     }
