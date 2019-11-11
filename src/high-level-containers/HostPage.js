@@ -6,15 +6,28 @@ import {Redirect} from 'react-router-dom'
 
 
 class HostPage extends React.Component {
+  constructor(){
+    super()
+
+    this.state = {
+      redirect: false
+    }
+  }
+
+
+  changeHostRedirect = () => {
+    this.setState({redirect: true})
+  }
+
   render(){
-    if (this.props.currentUser === null){
+    if (this.state.redirect){
       return <Redirect to='/' />
     }
     return(
         <Segment placeholder>
           <Grid columns={2} relaxed='very' stackable>
             <Grid.Column>
-                <HostFormContainer finishSubmit={this.props.finishSubmit} currentUser={this.props.currentUser}/>
+                <HostFormContainer finishSubmit={this.props.finishSubmit} currentUser={this.props.currentUser} changeHostRedirect={this.changeHostRedirect}/>
             </Grid.Column>
             <Grid.Column verticalAlign='middle'>
               <ExampleContainer />
