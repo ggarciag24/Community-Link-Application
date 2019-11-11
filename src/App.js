@@ -51,10 +51,13 @@ class App extends React.Component {
 
   onChangeUser = (user) => {
     this.setState({currentUser: user})
+    window.localStorage.setItem('user', `${this.state.currentUser.name}`)
+    window.localStorage.setItem('pw', `${this.state.currentUser.password}`)
   }
 
   addUser = (user) => {
     this.setState({users: [...this.state.users, user]})
+    window.localStorage.setItem('user', `${this.state.currentUser.name}`)
   }
 
   finishUnvolunteerSubmit = (data) => {
@@ -69,6 +72,7 @@ class App extends React.Component {
 
   logout = (e) => {
     this.setState({currentUser: null})
+    window.localStorage.removeItem('user')
   }
 
   sortBy = (sortvalue) => {

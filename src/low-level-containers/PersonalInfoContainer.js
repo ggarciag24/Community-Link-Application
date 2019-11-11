@@ -6,7 +6,7 @@ class PersonalInfoContainer extends React.Component {
   render(){
     return(
       <Card>
-        <Image src='https://www.fillmurray.com/250/250' wrapped ui={false} />
+        <Image src={this.props.currentUser.image} wrapped ui={false} />
         <Card.Content>
           <Card.Header>{this.props.currentUser.name}</Card.Header>
           <Card.Description>

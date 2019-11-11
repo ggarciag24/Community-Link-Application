@@ -10,6 +10,8 @@ class ProfilePage extends React.Component {
       return <Redirect to='/'/>
     }
     return(
+      <>
+      <h1> Profile </h1>
       <Segment placeholder>
           <Grid columns={2} relaxed='very' stackable>
             <Grid.Column width={2}>
@@ -22,7 +24,7 @@ class ProfilePage extends React.Component {
             </Grid.Column>
           </Grid>
       </Segment>
-
+      </>
     )
   }
 }

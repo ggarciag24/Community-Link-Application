@@ -1,6 +1,7 @@
 import React from 'react'
 import CurrentEventsContainer from '../low-level-containers/CurrentEventsContainer'
 import {Search} from 'semantic-ui-react'
+import {Redirect} from 'react-router-dom'
 
 class VolunteerPage extends React.Component {
 
@@ -10,31 +11,31 @@ class VolunteerPage extends React.Component {
     this.state = {
       searchText: '',
       searchResults: [],
-      sortby: 'Name'
+      sortby: 'Name',
+      redirect: false
     }
   }
 
   handleEventSignUp = (eventObj) => {
-    debugger
-   let filteredEvents = this.props.eventConnect.filter((connect) => connect.event_id === eventObj.id)
-   let deepFilter = filteredEvents.filter((filteredEvent) => filteredEvent.volunteer_id === this.props.currentUser.id)
-   if(deepFilter.length > 0){
-     alert('You have already signed up to volunteer for this event!')
-   } else {
-     alert('Thank You for Volunteering!')
-     fetch('http://localhost:3000/volunteer_events', {
-       method: 'POST',
-       headers: {
-         'Content-Type': 'application/json',
-         'Accept': 'application/json'
-       },
-       body: JSON.stringify({currentUser: this.props.currentUser, event: eventObj })
-     })
-     .then(res => res.json())
-     .then(data => {
-       this.props.finishVolunteerSignUp(data)
-     })
-   }
+    let filteredEvents = this.props.eventConnect.filter((connect) => connect.event_id === eventObj.id)
+    let deepFilter = filteredEvents.filter((filteredEvent) => filteredEvent.volunteer_id === this.props.currentUser.id)
+    if(deepFilter.length > 0){
+      alert('You have already signed up to volunteer for this event!')
+    } else {
+      alert('Thank You for Volunteering!')
+      fetch('http://localhost:3000/volunteer_events', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({currentUser: this.props.currentUser, event: eventObj })
+      })
+      .then(res => res.json())
+      .then(data => {
+        this.props.finishVolunteerSignUp(data)
+      })
+    }
   }
 
   searchFilter = (e) => {
@@ -47,12 +48,18 @@ class VolunteerPage extends React.Component {
     this.setState({sortby: e.target.value})
   }
 
-  debugger
+  changeRedirect = () => {
+    this.setState({redirect: true})
+  }
+
 
   render(){
-    debugger
+    if (this.state.redirect) {
+      return <Redirect to='/' />
+    }
     return(
       <>
+      <h1> Volunteer Opportunities </h1>
       <Search onSearchChange={this.searchFilter} showNoResults={false} />
       <br></br>
       <div className='sort-div'>
@@ -63,7 +70,7 @@ class VolunteerPage extends React.Component {
       <button className='sort-btn' onClick={() => this.props.sortBy(this.state.sortby)} > Sort</button>
       </div>
       <br></br><br></br>
-      <CurrentEventsContainer events={this.state.searchText.length === 0 ? this.props.events : this.state.searchResults} handleEventSignUp={this.handleEventSignUp} />
+      <CurrentEventsContainer events={this.state.searchText.length === 0 ? this.props.events : this.state.searchResults} handleEventSignUp={this.handleEventSignUp} changeRedirect={this.changeRedirect} currentUser={this.props.currentUser}/>
       </>
     )
     }

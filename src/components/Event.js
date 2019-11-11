@@ -18,7 +18,7 @@ class Event extends React.Component {
         </Card.Content>
         <Card.Content extra>
         <div className='ui two buttons'>
-        <Button basic color='green' onClick={() => this.props.handleEventSignUp(this.props.data)}> Sign Up </Button>
+        <Button basic color='green' onClick={this.props.currentUser === null? this.props.changeRedirect: () => this.props.handleEventSignUp(this.props.data)}> Sign Up </Button>
         </div>
         </Card.Content>
       </Card>
