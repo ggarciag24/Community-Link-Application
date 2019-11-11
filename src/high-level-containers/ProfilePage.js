@@ -2,10 +2,13 @@ import React from 'react'
 import PersonalInfoContainer from '../low-level-containers/PersonalInfoContainer'
 import ActivityLogContainer from '../low-level-containers/ActivityLogContainer'
 import {Segment, Grid, Divider} from 'semantic-ui-react'
+import {Redirect} from 'react-router-dom'
 
 class ProfilePage extends React.Component {
   render(){
-
+    if (this.props.currentUser === null) {
+      return <Redirect to='/'/>
+    }
     return(
       <Segment placeholder>
           <Grid columns={2} relaxed='very' stackable>
@@ -19,8 +22,6 @@ class ProfilePage extends React.Component {
             </Grid.Column>
           </Grid>
       </Segment>
-
-
 
     )
   }
