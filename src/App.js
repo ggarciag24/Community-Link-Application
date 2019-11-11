@@ -61,6 +61,12 @@ class App extends React.Component {
     this.setState({eventConnect: this.state.eventConnect.filter(con => con.id != data.id)})
   }
 
+  finishCancel = (data) => {
+    let updatedCon = this.state.eventConnect.filter(con => con.id != data.connect.id)
+    let updatedEvents = this.state.events.filter(con => con.id != data.event.id)
+    this.setState({eventConnect: updatedCon, events: updatedEvents})
+  }
+
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
   render(){
@@ -78,7 +84,7 @@ class App extends React.Component {
             <Route exact path="/" render={() => <MainPage onChangeUser={this.onChangeUser} addUser={this.addUser}/>} />
             <Route exact path="/host" render={() => <HostPage  finishSubmit={this.finishSubmit} currentUser={this.state.currentUser}/>} />
             <Route exact path="/volunteer" render={() => <VolunteerPage events={this.state.events} currentUser={this.state.currentUser} eventConnect={this.state.eventConnect} finishVolunteerSignUp={this.finishVolunteerSignUp}/>} />
-            <Route exact path="/profile" render={() => <ProfilePage currentUser={this.state.currentUser} events={this.state.events} eventConnect={this.state.eventConnect} finishUnvolunteerSubmit={this.finishUnvolunteerSubmit}/>} />
+            <Route exact path="/profile" render={() => <ProfilePage currentUser={this.state.currentUser} events={this.state.events} eventConnect={this.state.eventConnect} finishUnvolunteerSubmit={this.finishUnvolunteerSubmit} finishCancel={this.finishCancel}/>} />
             </Switch>
           </div>
       </React.Fragment>

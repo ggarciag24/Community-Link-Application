@@ -15,7 +15,7 @@ class ProfilePage extends React.Component {
               <PersonalInfoContainer currentUser={this.props.currentUser} />
             </Grid.Column>
             <Grid.Column verticalAlign='middle'>
-              <ActivityLogContainer currentUser={this.props.currentUser} events={this.props.events} eventConnect={this.props.eventConnect} finishUnvolunteerSubmit={this.props.finishUnvolunteerSubmit} />
+              <ActivityLogContainer currentUser={this.props.currentUser} events={this.props.events} eventConnect={this.props.eventConnect} finishUnvolunteerSubmit={this.props.finishUnvolunteerSubmit} finishCancel={this.props.finishCancel}/>
             </Grid.Column>
           </Grid>
       </Segment>

@@ -24,6 +24,20 @@ class ActivityLogContainer extends React.Component {
     }
   }
 
+  handleCancel = (obj) => {
+    fetch(`http://localhost:3000/events/${obj.id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    })
+    .then(res => res.json())
+    .then(data => {
+      this.props.finishCancel(data)
+    })
+  }
+
   render(){
     return(
       <Table fixed>
@@ -39,7 +53,7 @@ class ActivityLogContainer extends React.Component {
         </Table.Header>
         <Table.Body>
           {this.props.events.map((eventt) => eventt.host_id === this.props.currentUser.id ?
-            <ActivityLogInfo eventt={eventt}/>
+            <ActivityLogInfo eventt={eventt} handleCancel={this.handleCancel}/>
           : null)}
           {this.props.eventConnect.map((eventCon) => eventCon.volunteer_id === this.props.currentUser.id ?
             <ActivityLogVolunteerInfo eventCon={eventCon} events={this.props.events} handleRemove={this.handleRemove}/>
