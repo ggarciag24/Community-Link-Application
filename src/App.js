@@ -4,7 +4,7 @@ import MainPage from './high-level-containers/MainPage'
 import HostPage from './high-level-containers/HostPage'
 import VolunteerPage from './high-level-containers/VolunteerPage'
 import ProfilePage from './high-level-containers/ProfilePage'
-import {Route, Switch, Link} from 'react-router-dom';
+import {Route, Switch, Link, Redirect} from 'react-router-dom';
 import { Menu } from 'semantic-ui-react'
 
 class App extends React.Component {
@@ -17,7 +17,8 @@ class App extends React.Component {
       users: [],
       activeItem: '',
       currentUser: null,
-      eventConnect: []
+      eventConnect: [],
+      redirect: false
     }
   }
 
@@ -39,6 +40,26 @@ class App extends React.Component {
     .then(data => {
       this.setState({eventConnect: data})
     })
+
+    if (window.localStorage.getItem('user') && window.localStorage.getItem('pw')){
+      fetch('http://localhost:3000/fakelogin', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({username: window.localStorage.getItem('user'), password: window.localStorage.getItem('pw')})
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.error) {
+          alert('Invalid Login information')
+        } else {
+          this.onChangeUser(data)
+          this.setState({redirect: true})
+        }
+      })
+    }
   }
 
   finishVolunteerSignUp = (eventObj) => {
@@ -88,6 +109,7 @@ class App extends React.Component {
 
   render(){
     const { activeItem } = this.state
+
     return (
       <React.Fragment>
         <Menu stackable>
@@ -105,6 +127,9 @@ class App extends React.Component {
             <Route exact path="/profile" render={() => <ProfilePage currentUser={this.state.currentUser} events={this.state.events} eventConnect={this.state.eventConnect} finishUnvolunteerSubmit={this.finishUnvolunteerSubmit} finishCancel={this.finishCancel}/>} />
             </Switch>
           </div>
+          {this.state.currentUser ?
+             <Redirect to='/profile' />
+             : null }
       </React.Fragment>
     );
   }
