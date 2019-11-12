@@ -18,7 +18,7 @@ class App extends React.Component {
       activeItem: '',
       currentUser: null,
       eventConnect: [],
-      redirect: false
+      loading: true
     }
   }
 
@@ -56,7 +56,7 @@ class App extends React.Component {
           alert('Invalid Login information')
         } else {
           this.onChangeUser(data)
-          this.setState({redirect: true})
+          this.setState({loading: false})
         }
       })
     }
@@ -111,6 +111,7 @@ class App extends React.Component {
     const { activeItem } = this.state
 
     return (
+      !this.state.loading ?
       <React.Fragment>
         <Menu stackable>
           <Link to='/'><Menu.Item> <img src='https://www.nicepng.com/png/detail/101-1011189_a-stylized-circle-of-people-open-source-community.png' /> </Menu.Item></Link>
@@ -130,7 +131,7 @@ class App extends React.Component {
           {this.state.currentUser ?
              <Redirect to='/profile' />
              : null }
-      </React.Fragment>
+      </React.Fragment>: null
     );
   }
 }
