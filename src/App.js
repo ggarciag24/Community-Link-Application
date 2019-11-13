@@ -17,8 +17,7 @@ class App extends React.Component {
       users: [],
       activeItem: '',
       currentUser: null,
-      eventConnect: [],
-      loading: true
+      eventConnect: []
     }
   }
 
@@ -56,7 +55,6 @@ class App extends React.Component {
           alert('Invalid Login information')
         } else {
           this.onChangeUser(data)
-          this.setState({loading: false})
         }
       })
     }
@@ -94,6 +92,7 @@ class App extends React.Component {
   logout = (e) => {
     this.setState({currentUser: null})
     window.localStorage.removeItem('user')
+    window.localStorage.removeItem('pw')
   }
 
   sortBy = (sortvalue) => {
@@ -111,7 +110,6 @@ class App extends React.Component {
     const { activeItem } = this.state
 
     return (
-      !this.state.loading ?
       <React.Fragment>
         <Menu stackable>
           <Link to='/'><Menu.Item> <img src='https://www.nicepng.com/png/detail/101-1011189_a-stylized-circle-of-people-open-source-community.png' /> </Menu.Item></Link>
@@ -131,7 +129,7 @@ class App extends React.Component {
           {this.state.currentUser ?
              <Redirect to='/profile' />
              : null }
-      </React.Fragment>: null
+      </React.Fragment>
     );
   }
 }

@@ -40,6 +40,7 @@ class LoginContainer extends React.Component {
       } else {
         this.props.onChangeUser(data)
         this.setState({redirect: true})
+        
       }
       e.target.reset()
     })
