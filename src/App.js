@@ -118,7 +118,7 @@ class App extends React.Component {
           <Link to='/host'><Menu.Item name='host' active={activeItem === 'host'} onClick={this.handleItemClick}> Host </Menu.Item></Link>
           <Link to='/volunteer'><Menu.Item name='volunteer' active={activeItem === 'volunteer'} onClick={this.handleItemClick}>Volunteer</Menu.Item></Link>
           <Link to='/profile'><Menu.Item name='profile' active={activeItem === 'profile'} onClick={this.handleItemClick}> Profile </Menu.Item></Link>
-          { this.state.currentUser ? <Menu.Item name='logout' onClick={this.logout}>Logout </Menu.Item> : null}
+          { this.state.currentUser ? <Menu.Item name='logout' onClick={this.logout} position='right'>Logout </Menu.Item> : null}
         </Menu>
           <div className="App">
             <Switch>

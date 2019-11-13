@@ -3,6 +3,7 @@ import PersonalInfoContainer from '../low-level-containers/PersonalInfoContainer
 import ActivityLogContainer from '../low-level-containers/ActivityLogContainer'
 import {Segment, Grid, Divider} from 'semantic-ui-react'
 import {Redirect} from 'react-router-dom'
+import EventCalendarContainer from '../low-level-containers/EventCalendarContainer'
 
 class ProfilePage extends React.Component {
   render(){
@@ -24,6 +25,7 @@ class ProfilePage extends React.Component {
             </Grid.Column>
           </Grid>
       </Segment>
+      <EventCalendarContainer events={this.props.events} eventConnect={this.props.eventConnect} currentUser={this.props.currentUser} />
       </>
     )
   }
