@@ -4,13 +4,7 @@ import dayGridPlugin from '@fullcalendar/daygrid'
 import '../App.css'
 
 class EventCalendar extends React.Component {
-  constructor(){
-    super()
 
-    this.state = {
-      calendarEvents: []
-    }
-  }
 
   componentDidMount(){
     this.userEvents()
@@ -31,8 +25,7 @@ class EventCalendar extends React.Component {
     for(let i = 0; i < connects.length; i++ ){
     this.props.events.forEach((ev) => ev.id === connects[i]? volunteerEv.push({title: ev.name, date: this.fixDate(ev.date)}) : null)
     }
-
-    this.setState({calendarEvents: [...this.state.calendarEvents, ...hostEv, ...volunteerEv ]})
+    this.props.finishCalendar(hostEv, volunteerEv)
   }
 
 
@@ -51,7 +44,7 @@ class EventCalendar extends React.Component {
       <FullCalendar
         defaultView="dayGridMonth"
         plugins={[ dayGridPlugin ]}
-        events={this.state.calendarEvents}
+        events={this.props.calendarEvents}
       />
     )
   }

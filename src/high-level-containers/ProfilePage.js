@@ -6,6 +6,19 @@ import {Redirect} from 'react-router-dom'
 import EventCalendarContainer from '../low-level-containers/EventCalendarContainer'
 
 class ProfilePage extends React.Component {
+  constructor(){
+    super()
+
+    this.state = {
+      calendarEvents: []
+    }
+  }
+
+  finishCalendar = (hostEv, volunteerEv) => {
+    this.setState({calendarEvents: [...this.state.calendarEvents, ...hostEv, ...volunteerEv ]})
+
+  }
+
   render(){
     if (this.props.currentUser === null) {
       return <Redirect to='/'/>
@@ -25,7 +38,7 @@ class ProfilePage extends React.Component {
             </Grid.Column>
           </Grid>
       </Segment>
-      <EventCalendarContainer events={this.props.events} eventConnect={this.props.eventConnect} currentUser={this.props.currentUser} />
+      <EventCalendarContainer events={this.props.events} eventConnect={this.props.eventConnect} currentUser={this.props.currentUser} calendarEvents={this.state.calendarEvents} finishCalendar={this.finishCalendar}/>
       </>
     )
   }
