@@ -2,6 +2,7 @@ import React from 'react'
 import CurrentEventsContainer from '../low-level-containers/CurrentEventsContainer'
 import {Search} from 'semantic-ui-react'
 import {Redirect} from 'react-router-dom'
+import Swal from 'sweetalert2'
 
 class VolunteerPage extends React.Component {
 
@@ -18,14 +19,29 @@ class VolunteerPage extends React.Component {
 
   handleEventSignUp = (eventObj) => {
     if (eventObj.host_id === this.props.currentUser.id){
-      alert('Cannot volunteer on an event you host!')
+      Swal.fire({
+        title: 'Error!',
+        text: 'Cannot volunteer on an event you host!',
+        icon: 'error',
+        confirmButtonText: 'Ok'
+      })
     } else {
       let filteredEvents = this.props.eventConnect.filter((connect) => connect.event_id === eventObj.id)
       let deepFilter = filteredEvents.filter((filteredEvent) => filteredEvent.volunteer_id === this.props.currentUser.id)
       if(deepFilter.length > 0){
-        alert('You have already signed up to volunteer for this event!')
+        Swal.fire({
+          title: 'Error!',
+          text: 'You have already signed up to volunteer for this event!',
+          icon: 'error',
+          confirmButtonText: 'Ok'
+        })
       } else {
-        alert('Thank You for Volunteering!')
+        Swal.fire({
+          title: 'Success!',
+          text: 'Thank You for Volunteering!',
+          icon: 'success',
+          confirmButtonText: 'Great!'
+        })
         fetch('http://localhost:3000/volunteer_events', {
           method: 'POST',
           headers: {
