@@ -42,9 +42,9 @@
 .volunteerback {
   background-image: url(https://images.pexels.com/photos/208317/pexels-photo-208317.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
   position: absolute;
-  height: 143%;
+  height: 170%;
   width: 100%;
-  background-size: 100%;
+  background-size: 180%;
 }
 
 .profileback {
@@ -79,6 +79,7 @@
 
 .eventt {
   font-family: 'American Typewriter';
+  margin: 0 0 0 10px;
 }
 
 .log {

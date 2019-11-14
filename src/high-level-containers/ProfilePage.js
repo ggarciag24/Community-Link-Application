@@ -28,12 +28,12 @@ class ProfilePage extends React.Component {
       <h1 className='coolwhitetext'> Profile </h1>
       <Segment placeholder >
           <Grid columns={2} relaxed='very' stackable className='backimg'>
-            <Grid.Column width={2}>
+            <Grid.Column width={1}>
               </Grid.Column>
             <Grid.Column width={4} >
               <PersonalInfoContainer currentUser={this.props.currentUser} />
             </Grid.Column>
-            <Grid.Column verticalAlign='middle' >
+            <Grid.Column verticalAlign='middle' width={10}>
               <ActivityLogContainer currentUser={this.props.currentUser} events={this.props.events} eventConnect={this.props.eventConnect} finishUnvolunteerSubmit={this.props.finishUnvolunteerSubmit} finishCancel={this.props.finishCancel}/>
             </Grid.Column>
           </Grid>
