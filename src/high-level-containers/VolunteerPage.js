@@ -78,8 +78,8 @@ class VolunteerPage extends React.Component {
       return <Redirect to='/' />
     }
     return(
-      <>
-      <h1> Volunteer Opportunities </h1>
+      <div className='volunteerback'>
+      <h1 className='cooltext'> Volunteer Opportunities </h1>
       <Search onSearchChange={this.searchFilter} showNoResults={false} />
       <br></br>
       <div className='sort-div'>
@@ -91,7 +91,7 @@ class VolunteerPage extends React.Component {
       </div>
       <br></br><br></br>
       <CurrentEventsContainer events={this.state.searchText.length === 0 ? this.props.events : this.state.searchResults} handleEventSignUp={this.handleEventSignUp} changeRedirect={this.changeRedirect} currentUser={this.props.currentUser}/>
-      </>
+      </div>
     )
     }
   }

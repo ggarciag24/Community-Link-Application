@@ -42,6 +42,7 @@ class EventCalendar extends React.Component {
   render(){
     return (
       <FullCalendar
+        className='calendar'
         defaultView="dayGridMonth"
         plugins={[ dayGridPlugin ]}
         events={this.props.calendarEvents}

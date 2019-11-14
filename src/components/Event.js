@@ -7,7 +7,7 @@ class Event extends React.Component {
   render(){
 
     return(
-      <Card>
+      <Card className='eventt'>
         <Card.Content>
         <Card.Header>{this.props.data.name}</Card.Header>
         <Card.Meta>{this.props.data.location}</Card.Meta>

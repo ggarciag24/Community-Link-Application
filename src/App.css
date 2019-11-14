@@ -23,3 +23,65 @@
 .App-link {
   color: #09d3ac;
 }
+
+.back {
+  background-image: url(https://images.pexels.com/photos/1131868/pexels-photo-1131868.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-size: 100%;
+}
+
+.hostback {
+  background-image: url(https://images.pexels.com/photos/624929/pexels-photo-624929.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.volunteerback {
+  background-image: url(https://images.pexels.com/photos/208317/pexels-photo-208317.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+  position: absolute;
+  height: 143%;
+  width: 100%;
+  background-size: 100%;
+}
+
+.profileback {
+  background-image: url(https://images.pexels.com/photos/2887160/pexels-photo-2887160.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+  position: absolute;
+  height: 36%;
+  width: 100%;
+  background-size: 100%;
+}
+
+
+
+.backimg {
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsG5ISI7nTKCNfJsoEFBvHoRoJC7ObvPn-2rEjgsSGQatn1HnH&s);
+
+}
+
+
+.calendar {
+  opacity: 100%;
+
+}
+
+.cooltext {
+  font-family: 'American Typewriter';
+}
+
+.coolwhitetext {
+  color: white;
+  font-family: 'American Typewriter';
+}
+
+.eventt {
+  font-family: 'American Typewriter';
+}
+
+.log {
+  color: white;
+  font-family: 'American Typewriter';
+}

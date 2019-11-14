@@ -5,8 +5,8 @@ import { Card, Icon } from 'semantic-ui-react'
 class ExampleContainer extends React.Component {
   render(){
     return(
-      <div>
-        <h2> Example Events</h2>
+      <div className='coolwhitetext'>
+        <h2 className='coolwhitetext'> Example Events</h2>
         <br></br>
         <ul>
           <li>Road-side trash pick-up</li>

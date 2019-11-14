@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button, Divider, Form, Grid, Segment, Input } from 'semantic-ui-react'
 import {Redirect} from 'react-router-dom';
+import Swal from 'sweetalert2'
 
 
 class LoginContainer extends React.Component {
@@ -36,11 +37,16 @@ class LoginContainer extends React.Component {
     .then(res => res.json())
     .then(data => {
       if (data.error) {
-        alert('Invalid Login information')
+        Swal.fire({
+          title: 'Error!',
+          text: 'Invalid Login information!',
+          icon: 'error',
+          confirmButtonText: 'Ok'
+        })
       } else {
         this.props.onChangeUser(data)
         this.setState({redirect: true})
-        
+
       }
       e.target.reset()
     })
@@ -70,12 +76,12 @@ class LoginContainer extends React.Component {
     }
     return(
       <Segment placeholder>
-        <Grid columns={2} relaxed='very' stackable>
+        <Grid columns={2} relaxed='very' stackable className='backimg'>
           <Grid.Column>
             <Form onSubmit={this.handleLoginSubmit} >
               <Form.Input icon='user' iconPosition='left' label='Username' placeholder='Username' name='username' onChange={this.handleChange} />
               <Form.Input icon='lock' iconPosition='left' label='Password' type='password' placeholder='Password' name='password' onChange={this.handleChange} />
-              <Button content='Login' primary />
+              <Button content='Login' icon='signup' primary />
             </Form>
           </Grid.Column>
           <Grid.Column verticalAlign='middle'>

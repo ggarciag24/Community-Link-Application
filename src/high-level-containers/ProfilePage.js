@@ -24,22 +24,22 @@ class ProfilePage extends React.Component {
       return <Redirect to='/'/>
     }
     return(
-      <>
-      <h1> Profile </h1>
-      <Segment placeholder>
-          <Grid columns={2} relaxed='very' stackable>
+      <div className='profileback'>
+      <h1 className='coolwhitetext'> Profile </h1>
+      <Segment placeholder >
+          <Grid columns={2} relaxed='very' stackable className='backimg'>
             <Grid.Column width={2}>
               </Grid.Column>
-            <Grid.Column width={4}>
+            <Grid.Column width={4} >
               <PersonalInfoContainer currentUser={this.props.currentUser} />
             </Grid.Column>
-            <Grid.Column verticalAlign='middle'>
+            <Grid.Column verticalAlign='middle' >
               <ActivityLogContainer currentUser={this.props.currentUser} events={this.props.events} eventConnect={this.props.eventConnect} finishUnvolunteerSubmit={this.props.finishUnvolunteerSubmit} finishCancel={this.props.finishCancel}/>
             </Grid.Column>
           </Grid>
       </Segment>
       <EventCalendarContainer events={this.props.events} eventConnect={this.props.eventConnect} currentUser={this.props.currentUser} calendarEvents={this.state.calendarEvents} finishCalendar={this.finishCalendar}/>
-      </>
+      </div>
     )
   }
 }

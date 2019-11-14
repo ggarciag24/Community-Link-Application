@@ -15,10 +15,12 @@ class MainPage extends React.Component {
   render(){
 
     return(
-      <>
-        <h1>Login / Sign up</h1>
+      <div className='back'>
+        <h1 className='coolwhitetext'> Community-Link </h1>
+        <br></br>
+        <h3 className='log'>Login / Sign up</h3>
         <LoginContainer onChangeUser={this.props.onChangeUser} addUser={this.props.addUser}/>
-      </>
+      </div>
     )
   }
 }

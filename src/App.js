@@ -112,11 +112,12 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <Menu stackable>
-          <Link to='/'><Menu.Item> <img src='https://www.nicepng.com/png/detail/101-1011189_a-stylized-circle-of-people-open-source-community.png' /> </Menu.Item></Link>
-          <Link to='/host'><Menu.Item name='host' active={activeItem === 'host'} onClick={this.handleItemClick}> Host </Menu.Item></Link>
-          <Link to='/volunteer'><Menu.Item name='volunteer' active={activeItem === 'volunteer'} onClick={this.handleItemClick}>Volunteer</Menu.Item></Link>
-          <Link to='/profile'><Menu.Item name='profile' active={activeItem === 'profile'} onClick={this.handleItemClick}> Profile </Menu.Item></Link>
-          { this.state.currentUser ? <Menu.Item name='logout' onClick={this.logout} position='right'>Logout </Menu.Item> : null}
+          <Link to='/'><Menu.Item> <img src='http://www.upsctoday.com/wp-content/uploads/2018/05/Community.png' /> </Menu.Item></Link>
+          <Link to='/host'><Menu.Item className='cooltext' name='host' active={activeItem === 'host'} onClick={this.handleItemClick}> Host </Menu.Item></Link>
+          <Link to='/volunteer'><Menu.Item className='cooltext' name='volunteer' active={activeItem === 'volunteer'} onClick={this.handleItemClick}>Volunteer</Menu.Item></Link>
+          <Link to='/profile'><Menu.Item className='cooltext' name='profile' active={activeItem === 'profile'} onClick={this.handleItemClick}> Profile </Menu.Item></Link>
+
+          { this.state.currentUser ? <Menu.Item className='cooltext' name='logout' onClick={this.logout} position='right'>Logout </Menu.Item> : null}
         </Menu>
           <div className="App">
             <Switch>

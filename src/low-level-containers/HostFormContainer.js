@@ -32,8 +32,8 @@ class HostFormContainer extends React.Component {
 
   render(){
     return(
-      <Form onSubmit={this.props.currentUser === null? this.props.changeHostRedirect: this.handleSubmit}>
-        <h2> Host Form</h2>
+      <Form className='coolwhitetext' onSubmit={this.props.currentUser === null? this.props.changeHostRedirect: this.handleSubmit}>
+        <h2 className='coolwhitetext'> Host Form</h2>
         <Form.Group widths='equal'>
           <Form.Field
             id='name'

@@ -40,7 +40,7 @@ class ActivityLogContainer extends React.Component {
 
   render(){
     return(
-      <Table fixed>
+      <Table fixed className='cooltext'>
         <Table.Header>
           <Table.Row>
             <Table.HeaderCell>Role</Table.HeaderCell>

@@ -24,8 +24,9 @@ class HostPage extends React.Component {
       return <Redirect to='/' />
     }
     return(
+      <div className='hostback'>
         <Segment placeholder>
-          <Grid columns={2} relaxed='very' stackable>
+          <Grid columns={2} relaxed='very' stackable className='backimg'>
             <Grid.Column>
                 <HostFormContainer finishSubmit={this.props.finishSubmit} currentUser={this.props.currentUser} changeHostRedirect={this.changeHostRedirect}/>
             </Grid.Column>
@@ -35,6 +36,7 @@ class HostPage extends React.Component {
           </Grid>
           <Divider vertical></Divider>
         </Segment>
+      </div>
     )
   }
 }
